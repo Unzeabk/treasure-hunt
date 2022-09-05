@@ -1,0 +1,170 @@
+@font-face {
+  font-family: Titillium Web;
+  src: url("./assets/webfonts/titillium.woff2") format("woff2"),
+    url("./assets/webfonts/titillium.woff") format("woff");
+  font-display: auto;
+}
+
+@font-face {
+  font-family: Titillium Web;
+  font-weight: 700;
+  src: url("./assets/webfonts/titillium-bold.woff2") format("woff2"),
+    url("./assets/webfonts/titillium-bold.woff") format("woff");
+  font-display: auto;
+}
+
+a,
+div,
+form,
+h3,
+h4,
+h6,
+i,
+p,
+span {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button,
+html [type="button"] {
+  -webkit-appearance: none !important;
+}
+
+a {
+  font-weight: 400;
+  transition: all 0.2s;
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  color: hsla(0, 0%, 100%, 0.5);
+  outline: 0;
+  text-decoration: none;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 31px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 27px;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 18px;
+  font-weight: 600;
+}
+
+h6,
+p {
+  font-size: 16px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: hsla(0, 0%, 100%, 0.5);
+  line-height: 24px;
+}
+
+* {
+  outline: 0 !important;
+}
+
+body {
+  line-height: 1;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+button,
+html [type="button"] {
+  -webkit-appearance: none !important;
+}
+
+a {
+  font-weight: 400;
+  background-color: transparent;
+}
+
+a:active,
+a:hover {
+  color: hsla(0, 0%, 100%, 0.5);
+  outline: 0;
+  text-decoration: none;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 28px;
+  line-height: 31px;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 24px;
+  line-height: 27px;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+p {
+  font-size: 16px;
+}
+
+p {
+  margin-bottom: 20px;
+  color: hsla(0, 0%, 100%, 0.5);
+  line-height: 24px;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+}
