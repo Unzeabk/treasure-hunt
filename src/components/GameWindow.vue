@@ -2,9 +2,9 @@
   <div class="treasure-window">
     <div :class="`overflow-content level-${level + 1}`">
       <div
-        v-for="i in 10"
+        v-for="i in countLevels"
         class="row"
-        :class="{ active: 10 - level == i && isGame }"
+        :class="{ active: countLevels - level == i && isGame }"
         :key="i"
       >
         <div v-if="i == 1" class="final-bg"></div>
@@ -13,7 +13,7 @@
           :task="task"
           :isCorrect="isCorrect"
           :isGolden="i == 1"
-          :height="10 - i"
+          :height="countLevels - i"
           :key="j"
         />
       </div>
@@ -31,7 +31,7 @@ export default {
   components: {
     GamesChest,
   },
-  computed: mapState("game", ["level", "game", "isGame"]),
+  computed: mapState("game", ["level", "game", "isGame", "countLevels"]),
 };
 </script>
 

@@ -4,10 +4,11 @@
       width: `${percent}%`,
       height: height,
       opacity: show ? 1 : 0,
-      'transition': lowTransition ? 'width 0.1s, opacity 0.4s' : 'width 0.4s, opacity 0.4s',
+      transition: lowTransition
+        ? 'width 0.1s, opacity 0.4s'
+        : 'width 0.4s, opacity 0.4s',
       'background-color': canSuccess ? color : failedColor,
     }"
-    style="border-radius: 4px"
     class="progress"
   />
 </template>
@@ -26,7 +27,6 @@ export default {
     color: "#59b2e1",
     failedColor: "red",
   }),
-
   methods: {
     ...mapMutations("game", ["resetGame"]),
     start() {
@@ -51,8 +51,7 @@ export default {
       clearInterval(this.timer);
     },
   },
-
-  computed: mapState("game", ["levelTimer", "openedLevels"]),
+  computed: mapState("game", ["levelTimer", "openedLevels", "countLevels"]),
   watch: {
     openedLevels() {
       this.pause();
@@ -64,13 +63,13 @@ export default {
         return;
       }
 
-      if (this.openedLevels == 10) {
+      if (this.openedLevels == this.countLevels) {
         this.show = false;
         return;
       }
 
       this.duration = duration;
-      
+
       this.percent = 100;
       this.lowTransition = false;
       this.canSuccess = true;
@@ -94,5 +93,6 @@ export default {
   width: 0%;
   opacity: 1;
   z-index: 999999;
+  border-radius: 4px;
 }
 </style>

@@ -5,29 +5,20 @@
         <div class="game-frame">
           <div class="app-treasure">
             <Transition name="slide-up">
-              <popup-win v-if="level == 10" />
+              <popup-win v-if="level == countLevels" />
             </Transition>
             <div class="treasure-canvas">
               <div class="treasure-wrapper">
                 <div class="treasure-map">
                   <div class="map-wrapper">
-                    <div v-for="i in 10" :key="i">
-                      <div
-                        v-if="i == level + 1 && isGame"
-                        :class="`treasure-map-item tr-${i} active`"
-                      >
+                    <div v-for="i in countLevels" :key="i">
+                      <div v-if="i == level + 1 && isGame" :class="`treasure-map-item tr-${i} active`">
                         <div class="image active"></div>
                       </div>
-                      <div
-                        v-else-if="i < level + 1"
-                        :class="`treasure-map-item tr-${i} passed`"
-                      >
+                      <div v-else-if="i < level + 1" :class="`treasure-map-item tr-${i} passed`">
                         <div class="image passed"></div>
                       </div>
-                      <div
-                        v-else-if="i == 10"
-                        :class="`treasure-map-item tr-${i}`"
-                      >
+                      <div v-else-if="i == countLevels" :class="`treasure-map-item tr-${i}`">
                         <div class="image last"></div>
                       </div>
                       <div v-else :class="`treasure-map-item tr-${i}`">
@@ -42,7 +33,7 @@
                     <div class="fact-item">
                       <div class="fact-thumb-label">До сокровищ осталось</div>
                       <div class="fact-label chest-counter">
-                        {{ 10 - level }} {{ chestModify() }}
+                        {{ countLevels - level }} {{ chestModify() }}
                       </div>
                     </div>
                   </div>
@@ -50,11 +41,7 @@
               </div>
               <div class="action-selector">
                 <div class="button-wrap">
-                  <button
-                    @click="newGame()"
-                    class="play-button"
-                    :disabled="isGame"
-                  >
+                  <button @click="newGame()" class="play-button" :disabled="isGame">
                     {{ buttonText() }}
                   </button>
                 </div>
@@ -80,15 +67,15 @@ export default {
     PopupWin,
     Timer,
   },
-  computed: mapState("game", ["level", "isGame"]),
+  computed: mapState("game", ["level", "isGame", "countLevels"]),
   methods: {
     ...mapMutations("game", ["newGame"]),
     chestModify() {
-      if (5 > 10 - this.level && 10 - this.level > 1) {
+      if (5 > this.countLevels - this.level && this.countLevels - this.level > 1) {
         return "Сундука";
       }
 
-      if (10 - this.level == 1) {
+      if (this.countLevels - this.level == 1) {
         return "Сундук";
       }
 
