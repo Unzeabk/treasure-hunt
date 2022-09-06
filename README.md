@@ -1,4 +1,4 @@
-# treasure-hunt
+# Третий лишний или охота за сокровищами :game
 
 ## Project setup
 ```
