@@ -4,7 +4,7 @@
 
 https://treasure-hunt-vue.netlify.app/
 
-<img src="https://treasure-hunt-vue.netlify.app/Screenshot.png" width="200" >
+<img src="https://treasure-hunt-vue.netlify.app/Screenshot.png" width="500" >
 
 ## Project setup
 ```
