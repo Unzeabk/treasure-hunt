@@ -56,7 +56,7 @@ export default {
 
       this.isOpened = true;
 	  
-      this.checkUpLevel(this.level);
+      this.checkUpLevel();
 
       setTimeout(() => {
         if (this.isCorrect) {
