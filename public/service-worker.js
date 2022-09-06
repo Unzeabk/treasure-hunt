@@ -1,4 +1,4 @@
-workbox.core.setCacheNameDetails({ prefix: 'fbcloud' })
+workbox.core.setCacheNameDetails({ prefix: 'treasure-hunt' })
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
