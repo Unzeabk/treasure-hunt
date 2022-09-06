@@ -1,5 +1,11 @@
 # Третий лишний или охота за сокровищами 🎮
 
+## Демо
+
+https://treasure-hunt-vue.netlify.app/
+
+<img src="https://treasure-hunt-vue.netlify.app/Screenshot.png" width="200" >
+
 ## Project setup
 ```
 npm install
