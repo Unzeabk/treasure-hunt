@@ -1,6 +1,6 @@
 import { cards } from "@/cards";
 
-const INITIAL_TIMER = 4000;
+const INITIAL_TIMER = 5000;
 const TIMER_DELTA = 350;
 
 const generateGame = () => {
