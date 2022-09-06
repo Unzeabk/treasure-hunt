@@ -225,20 +225,6 @@ export const cards = [
   ],
   [
     {
-      task: "кисть",
-      isCorrect: false,
-    },
-    {
-      task: "альбом",
-      isCorrect: true,
-    },
-    {
-      task: "краски",
-      isCorrect: false,
-    },
-  ],
-  [
-    {
       task: "троллейбус",
       isCorrect: false,
     },
@@ -360,20 +346,6 @@ export const cards = [
     },
     {
       task: "репа",
-      isCorrect: true,
-    },
-  ],
-  [
-    {
-      task: "редис",
-      isCorrect: false,
-    },
-    {
-      task: "помидор",
-      isCorrect: false,
-    },
-    {
-      task: "горох",
       isCorrect: true,
     },
   ],
