@@ -12,13 +12,22 @@
                 <div class="treasure-map">
                   <div class="map-wrapper">
                     <div v-for="i in 10" :key="i">
-                      <div v-if="i == level + 1 && isGame" :class="`treasure-map-item tr-${i} active`">
+                      <div
+                        v-if="i == level + 1 && isGame"
+                        :class="`treasure-map-item tr-${i} active`"
+                      >
                         <div class="image active"></div>
                       </div>
-                      <div v-else-if="i < level + 1" :class="`treasure-map-item tr-${i} passed`">
+                      <div
+                        v-else-if="i < level + 1"
+                        :class="`treasure-map-item tr-${i} passed`"
+                      >
                         <div class="image passed"></div>
                       </div>
-                      <div v-else-if="i == 10" :class="`treasure-map-item tr-${i}`">
+                      <div
+                        v-else-if="i == 10"
+                        :class="`treasure-map-item tr-${i}`"
+                      >
                         <div class="image last"></div>
                       </div>
                       <div v-else :class="`treasure-map-item tr-${i}`">
@@ -32,14 +41,22 @@
                   <div class="facts-wrapper">
                     <div class="fact-item">
                       <div class="fact-thumb-label">До сокровищ осталось</div>
-                      <div class="fact-label chest-counter">{{ 10 - level }} {{ chestModify() }}</div>
+                      <div class="fact-label chest-counter">
+                        {{ 10 - level }} {{ chestModify() }}
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="action-selector">
                 <div class="button-wrap">
-                  <button @click="newGame()" class="play-button" :disabled="isGame">Начать игру</button>
+                  <button
+                    @click="newGame()"
+                    class="play-button"
+                    :disabled="isGame"
+                  >
+                    {{ buttonText() }}
+                  </button>
                 </div>
               </div>
             </div>
@@ -63,13 +80,26 @@ export default {
     PopupWin,
     Timer,
   },
-  computed: mapState(["level", "isGame"]),
+  computed: mapState("game", ["level", "isGame"]),
   methods: {
-    ...mapMutations(["newGame"]),
+    ...mapMutations("game", ["newGame"]),
     chestModify() {
-      if (5 > 10 - this.level && 10 - this.level > 1) return "Сундука";
-      if (10 - this.level == 1) return "Сундук";
+      if (5 > 10 - this.level && 10 - this.level > 1) {
+        return "Сундука";
+      }
+
+      if (10 - this.level == 1) {
+        return "Сундук";
+      }
+
       return "Сундуков";
+    },
+    buttonText() {
+      if (this.isGame) {
+        return "выберите третий лишний";
+      }
+
+      return "Начать игру";
     },
   },
 };

@@ -38,9 +38,9 @@ export default {
   data: () => ({
     isOpened: false,
   }),
-  computed: mapState(["level", "isGame", "openedLevels"]),
+  computed: mapState("game", ["level", "isGame", "openedLevels"]),
   methods: {
-    ...mapMutations(["levelUp", "resetGame", "checkUpLevel"]),
+    ...mapMutations("game", ["levelUp", "resetGame", "checkUpLevel"]),
     checkСhoice() {
       if (!this.isGame) {
         return;

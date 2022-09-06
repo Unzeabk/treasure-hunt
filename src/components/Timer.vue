@@ -4,10 +4,11 @@
       width: `${percent}%`,
       height: height,
       opacity: show ? 1 : 0,
+      'transition': lowTransition ? 'width 0.1s, opacity 0.4s' : 'width 0.4s, opacity 0.4s',
       'background-color': canSuccess ? color : failedColor,
     }"
-    style="border-radius: 4px; transition: width 0.4s, opacity 0.4s"
-    class="progress liner loading"
+    style="border-radius: 4px"
+    class="progress"
   />
 </template>
 
@@ -18,6 +19,7 @@ export default {
   data: () => ({
     percent: 0,
     show: false,
+    lowTransition: false,
     canSuccess: true,
     duration: 0,
     height: "10px",
@@ -26,12 +28,13 @@ export default {
   }),
 
   methods: {
-    ...mapMutations(["resetGame"]),
+    ...mapMutations("game", ["resetGame"]),
     start() {
       if (this.timer) {
         clearInterval(this.timer);
         this.percent = 100;
       }
+      this.lowTransition = true;
       let d = 1000 / this.duration;
       this.timer = setInterval(() => {
         this.percent -= d;
@@ -41,8 +44,6 @@ export default {
       }, 10);
     },
     finish() {
-      this.percent = 0;
-      this.canSuccess = false;
       this.pause();
       this.resetGame();
     },
@@ -51,14 +52,12 @@ export default {
     },
   },
 
-  computed: mapState(["levelTimer", "openedLevels"]),
+  computed: mapState("game", ["levelTimer", "openedLevels"]),
   watch: {
     openedLevels() {
       this.pause();
     },
     levelTimer(duration) {
-      console.log(this.openedLevels);
-
       if (duration == 0) {
         this.canSuccess = false;
         this.percent = 0;
@@ -71,9 +70,10 @@ export default {
       }
 
       this.duration = duration;
-
-      this.canSuccess = true;
+      
       this.percent = 100;
+      this.lowTransition = false;
+      this.canSuccess = true;
       this.show = true;
 
       setTimeout(() => {

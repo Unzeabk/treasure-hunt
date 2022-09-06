@@ -31,7 +31,7 @@ export default {
   components: {
     GamesChest,
   },
-  computed: mapState(["level", "game", "isGame"]),
+  computed: mapState("game", ["level", "game", "isGame"]),
 };
 </script>
 

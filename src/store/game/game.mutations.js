@@ -1,7 +1,7 @@
 import { cards } from "@/cards";
 
-const INITIAL_TIMER = 6000;
-const TIMER_DELTA = 333;
+const INITIAL_TIMER = 4000;
+const TIMER_DELTA = 350;
 
 const generateGame = () => {
   const shuffled = cards.sort(() => 0.5 - Math.random());

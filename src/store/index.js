@@ -1,11 +1,13 @@
 import { createStore } from "vuex";
-import state from "./game.state";
-import mutations from "./game.mutations";
+import app from "./app";
+import game from "./game";
 
 const store = createStore({
-  namespaced: true,
-  state,
-  mutations,
+  strict: process.env.NODE_ENV !== "production",
+  modules: {
+    app,
+    game,
+  },
 });
 
 export default store;
